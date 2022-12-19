@@ -29,4 +29,20 @@ public class LocalServico implements Serializable {
 
     @Column(name = "loc_descricao", length = 45, nullable = false)
     private String nomeLocalServico;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getNomeLocalServico() {
+        return nomeLocalServico;
+    }
+
+    public void setNomeLocalServico(String nomeLocalServico) {
+        this.nomeLocalServico = nomeLocalServico;
+    }
 }

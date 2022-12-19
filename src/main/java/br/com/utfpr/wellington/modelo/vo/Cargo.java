@@ -29,4 +29,20 @@ public class Cargo implements Serializable {
 
     @Column(name = "car_descricao", length = 45, nullable = false)
     private String nomeCargo;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getNomeCargo() {
+        return nomeCargo;
+    }
+
+    public void setNomeCargo(String nomeCargo) {
+        this.nomeCargo = nomeCargo;
+    }
 }

@@ -29,4 +29,20 @@ public class TipoPagamento implements Serializable {
 
     @Column(name = "tip_descricao", length = 45, nullable = false)
     private String nomeTipoPagamento;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getNomeTipoPagamento() {
+        return nomeTipoPagamento;
+    }
+
+    public void setNomeTipoPagamento(String nomeTipoPagamento) {
+        this.nomeTipoPagamento = nomeTipoPagamento;
+    }
 }

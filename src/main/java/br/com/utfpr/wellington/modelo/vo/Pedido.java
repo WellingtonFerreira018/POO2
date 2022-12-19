@@ -6,6 +6,7 @@ package br.com.utfpr.wellington.modelo.vo;
 
 import java.io.Serializable;
 import java.sql.Date;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -31,24 +32,93 @@ public class Pedido implements Serializable {
     private Integer id;
 
     @Column(name = "ped_dataEntrada", length = 45, nullable = false)
-    private Date dataEntrada;
+    private String dataEntrada;
 
     @Column(name = "ped_dataSaida", length = 45)
-    private Date dataSaida;
+    private String dataSaida;
     
-    @ManyToOne
+    @Column(name = "ped_pagamento", length = 45)
+    private Integer pagamento;
+    
+    @ManyToOne(cascade = {CascadeType.PERSIST})
     @JoinColumn(name = "usu_codigo")
     private Usuario ususario;
     
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.PERSIST})
     @JoinColumn(name = "mes_numero")
     private Mesa mesa;
     
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.PERSIST})
     @JoinColumn(name = "tip_codigo")
     private TipoPagamento tipoPagamento;
     
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.PERSIST})
     @JoinColumn(name = "loc_codigo")
     private LocalServico localServico;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getDataEntrada() {
+        return dataEntrada;
+    }
+
+    public void setDataEntrada(String dataEntrada) {
+        this.dataEntrada = dataEntrada;
+    }
+
+    public String getDataSaida() {
+        return dataSaida;
+    }
+
+    public void setDataSaida(String dataSaida) {
+        this.dataSaida = dataSaida;
+    }
+
+    public Integer getPagamento() {
+        return pagamento;
+    }
+
+    public void setPagamento(Integer pagamento) {
+        this.pagamento = pagamento;
+    }
+    
+    public Usuario getUsusario() {
+        return ususario;
+    }
+
+    public void setUsusario(Usuario ususario) {
+        this.ususario = ususario;
+    }
+
+    public Mesa getMesa() {
+        return mesa;
+    }
+
+    public void setMesa(Mesa mesa) {
+        this.mesa = mesa;
+    }
+
+    public TipoPagamento getTipoPagamento() {
+        return tipoPagamento;
+    }
+
+    public void setTipoPagamento(TipoPagamento tipoPagamento) {
+        this.tipoPagamento = tipoPagamento;
+    }
+
+    public LocalServico getLocalServico() {
+        return localServico;
+    }
+
+    public void setLocalServico(LocalServico localServico) {
+        this.localServico = localServico;
+    }
+    
+    
 }

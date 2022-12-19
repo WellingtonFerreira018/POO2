@@ -4,17 +4,22 @@
  */
 package br.com.utfpr.wellington.modelo.dao;
 
-import br.com.utfpr.wellington.modelo.vo.Usuario;
+import br.com.utfpr.wellington.modelo.vo.Pedido;
+import java.util.List;
 
 /**
  *
  * @author ferre
  */
-public interface IUser {
+public interface PedidoDAO {
+ 
+    void Cadastrar(Pedido categoria);
     
-    void Cadastrar (Usuario categoria);
+    void Atualizar(Pedido usuario);
     
-    void Atualizar(Usuario usuario);
+    void Excluir(Pedido usuario);
     
-    void Excluir(Usuario usuario);
+    List<Pedido> listarTodos();
+    
+    float Pagamento(Integer mesa);
 }

@@ -1,44 +1,30 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
  */
 package br.com.utfpr.wellington.modelo.dao;
 
 import br.com.utfpr.wellington.modelo.vo.Usuario;
-import javax.persistence.EntityManager;
+import java.util.List;
 
 /**
  *
  * @author ferre
  */
-public class UsuarioDAO implements IUser {
-
-    EntityManager conexao;
-
+public interface UsuarioDAO {
     
-    public UsuarioDAO() {
-        conexao = ConexaoBanco.getInstance();
-    }
+    void Cadastrar(Usuario usuario);
     
-    @Override
-    public void Cadastrar(Usuario usuario) {
-        conexao.getTransaction().begin();
-        conexao.persist(usuario);
-        conexao.getTransaction().commit();
-    }
+    void Atualizar(Usuario usuario);
     
-    @Override
-    public void Atualizar(Usuario usuario) {
-        conexao.getTransaction().begin();
-        conexao.persist(usuario);
-        conexao.getTransaction().commit();
-    }
+    void Excluir(Usuario usuario);
     
-    @Override
-    public void Excluir(Usuario usuario) {
-        conexao.getTransaction().begin();
-        conexao.remove(usuario);
-        conexao.getTransaction().commit();
-    }
+    List<Usuario> listarTodos();
+    
+    Usuario listarUm(Integer id);
+    
+    Usuario login(String user, String password);
+    
+    void funcaoUsuario(Usuario usuario);
     
 }
